@@ -5,6 +5,5 @@
     "rootDir": "src",
     "target": "ESNext",
     "jsx": "react-jsx"
-  },
-  "exclude": ["src/**/*.tsx"]
+  }
 }
