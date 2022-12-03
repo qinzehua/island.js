@@ -3,6 +3,8 @@
     "module": "commonjs",
     "outDir": "dist",
     "rootDir": "src",
-    "target": "ESNext"
-  }
+    "target": "ESNext",
+    "jsx": "react-jsx"
+  },
+  "exclude": ["src/**/*.tsx"]
 }
