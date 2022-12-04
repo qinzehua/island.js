@@ -1,10 +1,11 @@
 import { build as viteBuild, InlineConfig } from "vite";
 import { join } from "path";
-import * as fs from "fs-extra";
+import fs from "fs-extra";
+import { pathToFileURL } from "url";
 
 import { CLIENT_ENTRY_PATH, SERVER_ENTRY_PATH } from "./constants";
 
-export async function bundle(root: string) {
+export async function bundle(root: string): Promise<any> {
   const resolveViteConfig = (isServer: boolean): InlineConfig => ({
     mode: "production",
     root,
@@ -65,6 +66,6 @@ export async function renderPage(
 export async function build(root: string = process.cwd()): Promise<void> {
   const [clientBundle, serverBundle] = await bundle(root);
   const serverEntryPath = join(root, ".temp", "ssr-entry.js");
-  const { render } = require(serverEntryPath);
+  const { render } = await import(pathToFileURL(serverEntryPath).toString());
   await renderPage(render, root, clientBundle);
 }

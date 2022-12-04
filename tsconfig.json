@@ -4,6 +4,8 @@
     "outDir": "dist",
     "rootDir": "src",
     "target": "ESNext",
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "esModuleInterop": true
   }
 }
