@@ -1,14 +1,16 @@
 module.exports = {
-  extends: [ // 继承一些规则
+  extends: [
+    // 继承一些规则
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier',
+    'prettier', // 用prettier覆盖eslint的某些规则，防止冲突
     'plugin:prettier/recommended'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaFeatures: { // 开启jsx检查
+    ecmaFeatures: {
+      // 开启jsx检查
       jsx: true
     },
     ecmaVersion: 'latest',
